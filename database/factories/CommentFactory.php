@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
  */
-class Comment--model=CommentFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,9 @@ class Comment--model=CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'post_id'        => Post::factory(),
+        'commenter_name'=> $this->faker->name(),
+        'comment'       => $this->faker->sentence(10),
         ];
     }
 }
