@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    //
+    use HasFactory;
+
+    protected $fillable = [
+        'author_id',
+        'title',
+        'content',
+    ];
+
     public function author()
     {
         return $this->belongsTo(Author::class);
